@@ -35,19 +35,55 @@ void print(int buff[], int N){
     int rep = choice(N);
     int count =0;
     for (int i = 0; i<rep; i++){
-        if (i % 2 == 0){
-            printf("LEVEL %d:", i);
-            for(int j =count ; j<power(2,i)+count; j++){
-                printf(" %d", buff[j]);
+        if (i < rep-1){
+            if (i % 2 == 0){
+                printf("LEVEL %d:", i);
+                for(int j =count ; j<power(2,i)+count; j++){
+                    printf(" %d", buff[j]);
+                }
+                printf("\n");
             }
-            printf("\n");
+            else {
+                printf("LEVEL %d:", i);
+                for(int j = power(2,i)+count; j>power(2,i)-1; j--){
+                    printf(" %d", buff[j-1]);
+                }
+                printf("\n");
+            }
         }
         else {
-            printf("LEVEL %d:", i);
-            for(int j = power(2,i)+count; j>power(2,i)-1; j--){
-                printf(" %d", buff[j-1]);
+            if (N < count + power(2,i)){
+                if (i % 2 == 0){
+                    printf("LEVEL %d:", i);
+                    for(int j =count ; j<N; j++){
+                        printf(" %d", buff[j]);
+                    }
+                    printf("\n");
+                }
+                else {
+                    printf("LEVEL %d:", i);
+                    for(int j = N; j>power(2,i)-1; j--){
+                        printf(" %d", buff[j-1]);
+                    }
+                    printf("\n");
+                }
             }
-            printf("\n");
+            else {
+                if (i % 2 == 0){
+                    printf("LEVEL %d:", i);
+                    for(int j =count ; j<power(2,i)+count; j++){
+                        printf(" %d", buff[j]);
+                    }
+                    printf("\n");
+                }
+                else {
+                    printf("LEVEL %d:", i);
+                    for(int j = power(2,i)+count; j>power(2,i)-1; j--){
+                        printf(" %d", buff[j-1]);
+                    }
+                    printf("\n");
+                }
+            }
         }
         count += power(2,i);
     }
