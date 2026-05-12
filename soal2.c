@@ -21,6 +21,7 @@ void print(int buff[], int N){
         }
         count += pow(2,i);
     }
+    return;
 }
 
 int main(){
@@ -30,6 +31,6 @@ int main(){
     for(int i = 0; i<N; i++){
         scanf("%d", &buff[i]);
     }
-
     print(buff, N);
+    return 0;
 }
