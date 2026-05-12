@@ -1,5 +1,19 @@
 #include <stdio.h>
-#include <math.h>
+
+int choice(int N){
+    if(N>0 && N<=1){
+        return 1;
+    }
+    else if(N>1 && N<=3){
+        return 2;
+    }
+    else if(N>3 && N<=7){
+        return 3;
+    }
+    else if(N>7 && N<=15){
+        return 4;
+    }
+}
 
 int power(int x, int pangkat){
     int imitx=x;
@@ -18,7 +32,7 @@ int power(int x, int pangkat){
 }
 
 void print(int buff[], int N){
-    int rep = log2(N+1);
+    int rep = choice(N);
     int count =0;
     for (int i = 0; i<rep; i++){
         if (i % 2 == 0){
